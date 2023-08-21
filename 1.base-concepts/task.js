@@ -4,13 +4,13 @@ function solveEquation(a, b, c) {
   let d = (b**2-4*a*c);
 
   if (d === 0) {
-  let onlyRoot = (-b/(2*a));
-  arr.push(onlyRoot);
+    let onlyRoot = (-b/(2*a));
+    .push(onlyRoot);
   } else if (d > 0) {
-  let firstRoot = (-b + Math.sqrt(d) )/(2*a);
-  let secondRoot = (-b - Math.sqrt(d) )/(2*a);
-  arr.push(firstRoot);
-  arr.push(secondRoot);
+    let firstRoot = (-b + Math.sqrt(d) )/(2*a);
+    let secondRoot = (-b - Math.sqrt(d) )/(2*a);
+    arr.push(firstRoot);
+    arr.push(secondRoot);
   } 
 
   return(arr);
@@ -25,9 +25,5 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
 
   let total = creditPercent * countMonths;
 
-  total.toFixed(2);
-
-  +total;
-
-  return(total);
+  return(total.toFixed(2));
 }
