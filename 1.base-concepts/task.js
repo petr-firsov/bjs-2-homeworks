@@ -5,7 +5,7 @@ function solveEquation(a, b, c) {
 
   if (d === 0) {
     let onlyRoot = (-b/(2*a));
-    .push(onlyRoot);
+    arr.push(onlyRoot);
   } else if (d > 0) {
     let firstRoot = (-b + Math.sqrt(d) )/(2*a);
     let secondRoot = (-b - Math.sqrt(d) )/(2*a);
@@ -27,5 +27,5 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
 
   let shortTotal = (total.toFixed(2));
 
-  return(shortTotal);
+  return(+shortTotal);
 }
