@@ -19,6 +19,7 @@ function getArrayParams(...args) {
     sum += args[i];
   }
 
+    // let +avg.toFixed(2) = sum/args.length;
     let avg = sum/(args.length);
     avg = avg.toFixed(2);
     avg = +avg;
@@ -44,7 +45,7 @@ function differenceMaxMinWorker(...args) {
     return 0;
   }
 
-  else return (Math.max(...args) - Math.min(...args));
+  return (Math.max(...args) - Math.min(...args));
 }
 
 function differenceEvenOddWorker(...args) {
@@ -57,14 +58,18 @@ function differenceEvenOddWorker(...args) {
 
   for (i = 0; i < args.length; i++) {
     if (args[i] % 2 === 0) {
-      sumEvenElement++;
+      sumEvenElement += args[i];
     } else {
-      sumOddElement++;
+      sumOddElement += args[i];
     }
-  
-    return (sumEvenElement - sumOddElement);
+
   }
+    return (sumEvenElement - sumOddElement);
 }
+
+
+
+//ПРОБЛЕМНАЯ ФУНКЦИЯ
 
 function averageEvenElementsWorker(...args) {
   if (args.length === 0) {
@@ -81,7 +86,7 @@ function averageEvenElementsWorker(...args) {
     }
   }
 
-  let avg = (sumEvenElement/countEvenElement);
+  let avg = sumEvenElement / countEvenElement;
 
   return avg;
 }
@@ -90,14 +95,11 @@ function makeWork (arrOfArr, func) {
   let maxWorkerResult = -Infinity;
 
   for (let array of arrOfArr) {
-    // const result =  func(...array); 
-    func(...array); 
-  }
-    // const result = func(...array);
-
-  if (result > maxWorkerResult) {
+    const result = func(...array); 
+    if (result > maxWorkerResult) {
     maxWorkerResult = result;
+   }
   }
-  
+
   return maxWorkerResult;
 }
