@@ -1,3 +1,5 @@
+// Первое задание
+
 function getArrayParams(...args) {
   let min = Infinity;
   let max = -Infinity;
@@ -9,11 +11,11 @@ function getArrayParams(...args) {
 
   for (let i = 0; i < args.length; i++) {
     if (args[i] > max) {
-    max = args[i];
+      max = args[i];
     }
 
     if (args[i] < min) {
-    min = args[i];
+      min = args[i];
     }
 
     sum += args[i];
@@ -25,13 +27,16 @@ function getArrayParams(...args) {
 }
 
 
+// Второе задание
+
+
 function summElementsWorker(...args) {
   if (args.length === 0) {
     return 0;
   }
  
   let sum = 0;
-  for (i = 0; i < args.length; i++) {
+  for (let i = 0; i < args.length; i++) {
     sum += args[i];
   }
   return sum;
@@ -53,7 +58,7 @@ function differenceEvenOddWorker(...args) {
   let sumEvenElement = 0;
   let sumOddElement = 0;
 
-  for (i = 0; i < args.length; i++) {
+  for (let i = 0; i < args.length; i++) {
     if (args[i] % 2 === 0) {
       sumEvenElement += args[i];
     } else {
@@ -64,10 +69,6 @@ function differenceEvenOddWorker(...args) {
     return (sumEvenElement - sumOddElement);
 }
 
-
-
-//ПРОБЛЕМНАЯ ФУНКЦИЯ
-
 function averageEvenElementsWorker(...args) {
   if (args.length === 0) {
     return 0;
@@ -76,17 +77,19 @@ function averageEvenElementsWorker(...args) {
   let sumEvenElement = 0;
   let countEvenElement = 0;
 
-  for (i = 0; i < args.length; i++) {
+  for (let i = 0; i < args.length; i++) {
     if (args[i] % 2 === 0) {
       sumEvenElement += args[i];
       countEvenElement++;
     }
   }
 
-  let avg = sumEvenElement / countEvenElement;
-
-  return avg;
+  return sumEvenElement / countEvenElement;
 }
+
+
+// Третье задание
+
 
 function makeWork (arrOfArr, func) {
   let maxWorkerResult = -Infinity;
@@ -94,7 +97,7 @@ function makeWork (arrOfArr, func) {
   for (let array of arrOfArr) {
     const result = func(...array); 
     if (result > maxWorkerResult) {
-    maxWorkerResult = result;
+      maxWorkerResult = result;
    }
   }
 
