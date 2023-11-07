@@ -19,10 +19,7 @@ function getArrayParams(...args) {
     sum += args[i];
   }
 
-    // let +avg.toFixed(2) = sum/args.length;
-    let avg = sum/(args.length);
-    avg = avg.toFixed(2);
-    avg = +avg;
+    let avg = +(sum / args.length).toFixed(2);
 
     return { min: min, max: max, avg: avg };
 }
@@ -80,7 +77,7 @@ function averageEvenElementsWorker(...args) {
   let countEvenElement = 0;
 
   for (i = 0; i < args.length; i++) {
-    if (args[i] % 2 === 0); {
+    if (args[i] % 2 === 0) {
       sumEvenElement += args[i];
       countEvenElement++;
     }
