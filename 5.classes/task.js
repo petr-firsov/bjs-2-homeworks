@@ -10,21 +10,21 @@ class PrintEditionItem {
     }
 
     fix() {
-    let state = state * 1.5;
+        this.state = this.state * 1.5;
     }
 
-    set writeState(state) {
+    set state(state) {
         if (state < 0) {
-        let state = 0;
+        this._state = 0;
         } else if (state > 100) {
-        let state = 100;
+        this._state = 100;
         } else {
-        let state = this.state;    
+        this._state = state;    
         } 
     }
 
-    get readState() {
-        return this.state;
+    get state() {
+        return this._state;
     };
 
 }
@@ -47,29 +47,69 @@ class Magazine extends PrintEditionItem{
 }
 
 class Book extends PrintEditionItem{
-    constructor(name, releaseDate, pagesCount, state) {
+    constructor(author, name, releaseDate, pagesCount, state) {
         super(name, releaseDate, pagesCount, state);
         this.type = 'book';
+        this.author = author;
     }
 }
 
 class NovelBook extends Book{
-    constructor(name, releaseDate, pagesCount, state) {
-        super(name, releaseDate, pagesCount, state);
+    constructor(author, name, releaseDate, pagesCount, state) {
+        super(author, name, releaseDate, pagesCount, state);
         this.type = 'novel';
     }
 }
 
 class FantasticBook extends Book{
-    constructor(name, releaseDate, pagesCount, state) {
-        super(name, releaseDate, pagesCount, state);
+    constructor(author, name, releaseDate, pagesCount, state) {
+        super(author, name, releaseDate, pagesCount, state);
         this.type = 'fantastic';
     }
 }
 
 class DetectiveBook extends Book{
-    constructor(name, releaseDate, pagesCount, state) {
-        super(name, releaseDate, pagesCount, state);
+    constructor(author, name, releaseDate, pagesCount, state) {
+        super(author, name, releaseDate, pagesCount, state);
         this.type = 'detective';
+    }
+}
+
+
+
+
+// Задание 2
+
+class Library {
+    constructor (name, books = []) {
+        this.name = name;
+        this.name = books;
+    }
+
+    addBook(book) {
+        if (book.state > 30) {
+            this.books.push(book);
+        }
+    }
+
+    findBookBy(type, value) {
+        for (let i = 0; i < this.books.length; i++) {
+            if (this.books[i].type === value) {
+                return this.books[i].name;
+            } else {
+                return null;
+            }
+        } 
+    }
+
+    giveBookByName(bookName) {
+        for (let i = 0; i < this.books.length; i++) {
+            if (this.books[i].name === bookName) {
+                delete this.books[i];
+                return this.books[i];
+            } else {
+                return null;
+            }
+        }
     }
 }
