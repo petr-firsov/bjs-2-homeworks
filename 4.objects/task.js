@@ -34,11 +34,10 @@ Student.prototype.addMarks = function (...marksToAdd) {
 //  Задание 4
 
 Student.prototype.getAverage = function (...marksToAdd) {
-    if ((this.hasOwnProperty('marks') === true) && (marksToAdd.length !== 0)) {
-        let sum = 0;
-        marksToAdd.forEach((number) => {
-        sum += number;
-        })  
+    if ((this.hasOwnProperty('marks') === true) && (this.marksToAdd.length !== 0)) {
+        let sum = this.marksToAdd.reduce(function (zero, number) {
+            return zero + number;
+        }, 0) 
         return sum / marksToAdd.length; 
     } else { 
         return 0;
