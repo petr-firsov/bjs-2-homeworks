@@ -1,11 +1,12 @@
 // Задание 1
 
-function Student(name, gender, age, marks = []) {
+function Student(name, gender, age) {
    this.name = name;
    this.gender = gender;
    this.age = age; 
-   this.marks = marks;
 }
+
+Student.prototype.marks = [];
 
 new Student('Oleg', 'male', 29); 
 
@@ -25,7 +26,7 @@ Student.prototype.setSubject = function (subjectName) {
 // Задание 3
 
 Student.prototype.addMarks = function (...marksToAdd) {
-    if (this.hasOwnProperty('marks') === true) {
+    if (this.hasOwnProperty('marks')) {
       this.marks.push(...marksToAdd);
     }
 }
@@ -33,12 +34,10 @@ Student.prototype.addMarks = function (...marksToAdd) {
 
 //  Задание 4
 
-Student.prototype.getAverage = function (...marksToAdd) {
-    if ((this.hasOwnProperty('marks') === true) && (this.marksToAdd.length !== 0)) {
-        let sum = this.marksToAdd.reduce(function (zero, number) {
-            return zero + number;
-        }, 0) 
-        return sum / marksToAdd.length; 
+Student.prototype.getAverage = function () {
+    if (this.hasOwnProperty('marks') && this.marks.length !== 0) {
+        let sum = this.marks.reduce((accumulator, number) => {return accumulator + number;})
+        return sum / marks.length; 
     } else { 
         return 0;
     }
