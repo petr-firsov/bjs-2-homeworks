@@ -1,7 +1,7 @@
 ﻿// Задача 1
 
 
-parseCount = function(value) {
+function parseCount(value) {
     try {
         Number.parseFloat(value) === NaN;
     } catch(error) {
@@ -13,7 +13,7 @@ parseCount = function(value) {
 }
 
 
-validateCount = function(value) {
+function validateCount(value) {
     try {
         parseCount(value);
     } catch(error) {
@@ -49,7 +49,7 @@ class Triangle {
     }
 }
 
-getTriangle = function() {
+function getTriangle() {
     try { 
         new Triangle;
         if (Triangle.constructor.catch === error);
