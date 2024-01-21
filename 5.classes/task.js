@@ -83,7 +83,7 @@ class DetectiveBook extends Book{
 class Library {
     constructor (name, books = []) {
         this.name = name;
-        this.name = books;
+        this.books = books;
     }
 
     addBook(book) {
@@ -93,23 +93,43 @@ class Library {
     }
 
     findBookBy(type, value) {
-        for (let i = 0; i < this.books.length; i++) {
-            if (this.books[i].type === value) {
-                return this.books[i].name;
-            } else {
-                return null;
-            }
-        } 
+        function findBook(book) {
+            item[type] === value;
+        }
+
+        if (this.books.every(book => book[type] === value)) {  
+            let i = this.books.findIndex(findBook);
+            return this.books[i];
+        } else {
+            return null;
+         }
     }
 
     giveBookByName(bookName) {
-        for (let i = 0; i < this.books.length; i++) {
-            if (this.books[i].name === bookName) {
-                delete this.books[i];
-                return this.books[i];
+        function findBook(book) {
+            book.name === bookName;
+        }
+        
+        if (this.books.every(book => book.name === bookName)) {
+                let i = this.books.findIndex(findBook);
+                this.books.splice(i, 1);
+                return (this.books[i]);
             } else {
                 return null;
-            }
         }
     }
 }
+
+
+let Leninka = new Library('Ленинка');
+
+Leninka.addBook(new Magazine('Cosmopolitan', 1989, 126, 40));
+Leninka.addBook(new DetectiveBook('Конан Дойл', 'Шерлок Холмс', 1901, 100, 70));
+Leninka.addBook(new NovelBook('Замятин', 'Мы', 1919, 381, 64));
+
+Leninka.findBookBy('releaseDate', 1919);
+
+Leninka.giveBookByName('Мы');
+Leninka.NovelBook.state(24);
+Leninka.NovelBook.fix();
+Leninka.addBook('Мы');
