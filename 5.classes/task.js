@@ -112,8 +112,8 @@ class Library {
         
         if (this.books.every(book => book.name === bookName)) {
                 let i = this.books.findIndex(findBook);
-                this.books.splice(i, 1);
-                return (this.books[i]);
+                let removed = this.books.splice(i, 1);
+                return removed;
             } else {
                 return null;
         }
@@ -121,15 +121,15 @@ class Library {
 }
 
 
-let Leninka = new Library('Ленинка');
+// let Leninka = new Library('Ленинка');
 
-Leninka.addBook(new Magazine('Cosmopolitan', 1989, 126, 40));
-Leninka.addBook(new DetectiveBook('Конан Дойл', 'Шерлок Холмс', 1901, 100, 70));
-Leninka.addBook(new NovelBook('Замятин', 'Мы', 1919, 381, 64));
+// Leninka.addBook(new Magazine('Cosmopolitan', 1989, 126, 40));
+// Leninka.addBook(new DetectiveBook('Конан Дойл', 'Шерлок Холмс', 1901, 100, 70));
+// Leninka.addBook(new NovelBook('Замятин', 'Мы', 1919, 381, 64));
 
-Leninka.findBookBy('releaseDate', 1919);
+// Leninka.findBookBy('releaseDate', 1919);
 
-Leninka.giveBookByName('Мы');
-Leninka.NovelBook.state(24);
-Leninka.NovelBook.fix();
-Leninka.addBook('Мы');
+// Leninka.giveBookByName('Мы');
+// Leninka.NovelBook.state(24);
+// Leninka.NovelBook.fix();
+// Leninka.addBook('Мы');
