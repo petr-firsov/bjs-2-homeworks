@@ -94,26 +94,25 @@ class Library {
 
     findBookBy(type, value) {
         function findBook(book) {
-            item[type] === value;
+            book[type] === value;
         }
 
-        if (this.books.every(book => book[type] === value)) {  
-            let i = this.books.findIndex(findBook);
-            return this.books[i];
+        if (this.books.find(findBook) !== undefined) {  
+            return this.books.find(findBook);
         } else {
             return null;
-         }
+        }
     }
 
     giveBookByName(bookName) {
-        function findBook(book) {
+        function findBookByName(book) {
             book.name === bookName;
         }
         
-        if (this.books.every(book => book.name === bookName)) {
+        if (this.books.find(findBookByName) !== undefined) {
                 let i = this.books.findIndex(findBook);
                 let removed = this.books.splice(i, 1);
-                return removed;
+                return removed[0];
             } else {
                 return null;
         }
