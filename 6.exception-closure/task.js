@@ -1,10 +1,11 @@
 ﻿// Задача 1
 
 function parseCount(value) {
-    if (isNaN(Number.parseFloat(value))) {
+    let result = Number.parseFloat(value);
+    if (isNaN(result)) {
         throw new Error('Невалидное значение');
     } else {
-        return Number.parseFloat(value);
+        return result;
     }
 }
 
@@ -12,7 +13,7 @@ function validateCount(value) {
     try {
         return parseCount(value);
     } catch(error) {
-        throw new Error;
+        return error;
     }
 }
 
@@ -22,31 +23,29 @@ function validateCount(value) {
 
 class Triangle {
     constructor(a, b, c) {
-        if ((a + b < c) || (a + c < b) || (b + c < a) === false) {
+        if ((a + b < c) || (a + c < b) || (b + c < a) === true) {
+            throw new Error('Треугольник с такими сторонами не существует');
+        } else {
             this.a = a;
             this.b = b;
             this.c = c;
-        } else {
-            throw new Error('Треугольник с такими сторонами не существует');
         }
     }
 
     get perimeter() {
-        if ((this.a + this.b < this.c) || (this.a + this.c < this.b) || (this.b + this.c < this.a) === false) {
-            return this.a + this.b + this.c;
-        } else {
+        if (this.constructor === Error) {
             return 'Ошибка! Треугольник не существует';
+        } else {
+            return this.a + this.b + this.c;
         }
     }
 
     get area() {
-        if ((this.a + this.b < this.c) || (this.a + this.c < this.b) || (this.b + this.c < this.a) === false) {
-            let p = 1/2 * (this.perimeter);
-            let s = Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c));
-            s = Number(s.toFixed(3));
-            return s;
-        } else {
+        if (this.constructor === Error) {
             return 'Ошибка! Треугольник не существует';
+        } else {
+            let p = this.perimeter / 2;
+            return Number(Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c)).toFixed(3));
         }
     }
 }
@@ -55,7 +54,7 @@ function getTriangle(a, b, c) {
     try {
         return new Triangle(a, b, c);
     } catch(error) {
-        return new Triangle(a, b, c);
+        return Triangle.perimeter, Triangle.area;
     }
 }
 
