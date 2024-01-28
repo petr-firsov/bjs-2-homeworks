@@ -93,31 +93,27 @@ class Library {
     }
 
     findBookBy(type, value) {
-        function findBook(book) {
-            book[type] === value;
-        }
+        const foundBook = this.books.find(book =>  book[type] === value);
 
-        if (this.books.find(findBook) !== undefined) {  
-            return this.books.find(findBook);
-        } else {
+        if (!foundBook) {  
             return null;
+        } 
+            return foundBook;
         }
-    }
+    
 
     giveBookByName(bookName) {
-        function findBookByName(book) {
-            book.name === bookName;
+        const foundBook = (this.books.find(book => book.name === bookName));
+
+        if (!foundBook) {
+            return null;
         }
-        
-        if (this.books.find(findBookByName) !== undefined) {
-                let i = this.books.findIndex(findBook);
-                let removed = this.books.splice(i, 1);
-                return removed[0];
-            } else {
-                return null;
-        }
+            let i = this.books.findIndex(book => book === bookName);
+            let removed = this.books.splice(i, 1);
+            return removed[0];
     }
 }
+
 
 
 // let Leninka = new Library('Ленинка');
